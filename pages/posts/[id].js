@@ -6,6 +6,7 @@ import utilStyles from '../../styles/utils.module.css';
 
 export async function getStaticPaths() {
     const paths = getAllPostIds();
+    console.log('path===',paths);
     return {
         paths,
         fallback: false,
@@ -13,6 +14,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  console.log('===',params);
     const postData = await getPostData(params.id);
     return {
         props: {
